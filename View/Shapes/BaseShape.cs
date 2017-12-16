@@ -5,10 +5,7 @@ namespace Model
 {
     public abstract class BaseShape
     {
-        bool draw
-        {
-            get;
-        }
+        bool draw { get; }
 
 
     }
