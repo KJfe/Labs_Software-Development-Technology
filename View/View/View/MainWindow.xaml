@@ -4,53 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View.View"
-        xmlns:uc="clr-namespace:View.UserControls"
-        
+        xmlns:uc="clr-namespace:View.UserControls"        
         mc:Ignorable="d"
-        Title="MainWindow" Height="210" Width="400">
+        Title="MainWindow" Height="400" Width="500">
     <Grid>
-        <!-- Устанавливаем две строки -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="26"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="26"></RowDefinition>
-        </Grid.RowDefinitions>
-            <!--Верхняя панель -->
-            <Grid Grid.Row="0" Grid.Column="0">
-            <!-- Устанавливаем три столбца -->
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+        <Canvas x:Name="workspace" >
+            <Canvas.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.AppWorkspaceColorKey}}" />
+            </Canvas.Background>            
+        </Canvas>
+        
+        <ToolBarTray HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Vertical" Background="{x:Null}">
+            <ToolBar ToolBar.OverflowMode="Never" 
+                     ToolBarTray.IsLocked="True" HorizontalAlignment="Center" Height="335" VerticalAlignment="Center" Width="63" Margin="0,0,-46,-201" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderThickness="1" BorderBrush="DimGray" Style="{DynamicResource ToolBarStyle1}">
+                <ToolBar.Effect>
+                    <DropShadowEffect BlurRadius="3" Color="#FF003AFF" Opacity="0.2" ShadowDepth="3" />
+                </ToolBar.Effect>
+               
+            </ToolBar>
+        </ToolBarTray>
 
-                <Button Grid.Column="0" Margin="3" Content="Line" Height="20" Width="auto" />
-                <Button Grid.Column="1" Margin="3" Content="Polyline" Height="20" Width="auto" />
-                <Button Grid.Column="2" Margin="3" Content="Ellipse" Height="20" Width="auto" />
-                <Button Grid.Column="3" Margin="3" Content="Polygon" Height="20" Width="auto" />
-                <Button Grid.Column="4" Margin="3" Content="Circle" Height="20" Width="auto" />
-            </Grid>
-            <!--Нижняя панель -->
-            <Grid Grid.Row="1" Grid.Column="0">
-                <!-- Устанавливаем три столбца -->
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="35"></ColumnDefinition>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Canvas Grid.Row="0" Grid.Column="2">
-                    <Ellipse Width="100" Height="96" Fill="LightPink"
-                             StrokeThickness="3" StrokeDashArray="4 2"
-                             Stroke="Red" StrokeDashCap="Round" />
-                </Canvas>
-            <GridSplitter Grid.Row="0" Grid.Column="1" Width="5" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
-            
-        </Grid>
-
-        <uc:TopBar Grid.Row="2"></uc:TopBar>
-       
     </Grid>
 
 </Window>
